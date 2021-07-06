@@ -1,0 +1,24 @@
+{
+  "name": "todo-web-application",
+  "version": "1.0.0",
+  "description": "This web app is to add the work that has to be done",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunal411/Todo-Web-Application.git"
+  },
+  "author": "Kunal Bansal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kunal411/Todo-Web-Application/issues"
+  },
+  "homepage": "https://github.com/kunal411/Todo-Web-Application#readme"
+}
