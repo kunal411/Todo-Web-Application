@@ -1,5 +1,5 @@
 module.exports.login = function(req, res){
-    return res.render('home', {
+    return res.render('sign', {
         title : "To Do Web App"
     });
 };
