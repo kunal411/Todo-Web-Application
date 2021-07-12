@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Linked Bootstrap file to use Bootstarp -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <!-- Linked jquery file to use jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <!-- Linked Bootstrap file to use javascript in bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <!-- Linked font-awesome to use logos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>
         <%= title %>
@@ -16,15 +21,18 @@
 </head>
 <body>
 
+    <!-- Box in which all the task is going to happen -->
     <div class="todo-list-box">
         <h2 style="text-align: center; margin-top: 10px; color: gray; font-family:Georgia, 'Times New Roman', Times, serif;">TODO app</h2>
 
+        <!-- Included form to add the todo list to my web app adn to store it in database -->
         <form method="POST" action="/mytodolist/create-todo">
             <div class="form-group" style="margin: 15px;">
                 <label for="exampleFormControlTextarea1" style="margin-left: 10px;font-family: Georgia, 'Times New Roman', Times, serif;">DESCRIPTION*</label required>
                 <textarea name="description" type="text" class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="What do you need to do?" required></textarea>
             </div>
 
+            <!-- input dropown where you can also write things whicb are not in the dropdown -->
             <p style="margin-left: 30px;font-family: Georgia, 'Times New Roman', Times, serif; margin-bottom: 5px;">CATEGORY*</p>
             <input type="text" list="cars" placeholder="Personal" name="category" class="inbl" style="margin-right: 26%;" required/>
             <datalist id="cars">
@@ -47,7 +55,7 @@
         </form>
         
         <div class="todo-list">
-
+            <!-- running for loop to add the data fron database to my web page -->
             <% for(let i of todo_list) {%>
                 <hr size="3" width="90%" color="grey" style="margin-left: 5%;">  
                 <ul>
@@ -78,6 +86,7 @@
         <hr size="3" width="90%" color="grey" style="margin-left: 5%; margin-bottom: 40px;">  
     </div>
 
+    <!-- linked javascript file to use js in my fromt end -->
     <script type="text/javascript" src="/js/todoList.js"></script>
 </body>
 </html>
