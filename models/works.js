@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const workSchema = new mongoose.Schema({
-    Description: {
+    description: {
         type: String,
         required: true
     },
@@ -11,7 +11,7 @@ const workSchema = new mongoose.Schema({
         required: true
     },
 
-    date: {
+    date: { 
         type: Date,
         required: true
     }

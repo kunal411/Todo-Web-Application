@@ -1,7 +1,14 @@
 const express = require('express');
-const app = express();
+const path = require('path');
 const port = 8000;
 
+const app = express();
+const db = require('./config/mongoose');
+
+//Setting schema of contact_list in model folder
+const TodoList = require('./models/works');
+
+app.use(express.urlencoded());
 app.use('/', require('./routes'));
 
 app.set('view engine', 'ejs');

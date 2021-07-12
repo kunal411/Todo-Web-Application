@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>
+        <%= title %>
+    </title>
+
+    <link rel="stylesheet" href="/css/todoList.css">
+    
+</head>
+<body>
+
+    <div class="todo-list-box">
+        <h2 style="text-align: center; margin-top: 10px; color: gray; font-family:Georgia, 'Times New Roman', Times, serif;">TODO app</h2>
+
+        <form method="POST" action="/mytodolist/create-todo">
+            <div class="form-group" style="margin: 15px;">
+                <label for="exampleFormControlTextarea1" style="margin-left: 10px;font-family: Georgia, 'Times New Roman', Times, serif;">DESCRIPTION*</label required>
+                <textarea name="description" type="text" class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="What do you need to do?" required></textarea>
+            </div>
+
+            <p style="margin-left: 30px;font-family: Georgia, 'Times New Roman', Times, serif; margin-bottom: 5px;">CATEGORY*</p>
+            <input type="text" list="cars" placeholder="Personal" name="category" class="inbl" style="margin-right: 26%;" required/>
+            <datalist id="cars">
+                <option>Personal</option>
+                <option>Work</option>
+                <option>School</option>
+                <option>Cleaning</option>
+            </datalist>
+
+            <div class="inbl date-input">
+                <p style="margin-left: 10px;font-family: Georgia, 'Times New Roman',   Times, serif;">DATE*</p>
+                <input class="form-control" type="date" value="yyyy-mm-dd" id="d" style="border: 1px solid  lightgray; width: 200px; height: 30px; margin-top: -15px;" name="date" required>
+            </div>
+
+            <button type="submit" class="btn btn-success" style="background-color: black;
+            color: black; width: 30%; margin-left: 35%; margin-top: -30px;">
+                <i class="fa fa-plus" style="font-size:20px; color: darkgray; margin-right: 20px;"></i>
+                <b style="color: darkgray;">Add Task</b>
+            </button>
+        </form>
+        
+        <div class="todo-list">
+
+            <% for(let i of todo_list) {%>
+                <hr size="3" width="90%" color="grey" style="margin-left: 5%;">  
+                <ul>
+                    <li>
+                        <div class="todo-item inil">
+                            <p style="font-size: 19px; font-weight: bold; margin-bottom: 2px; margin-left: 3%;"> <%= i.description %>
+                            </p>
+                            <p>
+                                <i class="fa fa-calendar" style="font-size:18px; color: lightgray; margin-left: 3%;"></i>
+                                <%= i.date %>
+                            </p>
+                        </div>
+
+                        <div class="inil delete-box">
+                            <a href="/mytodoList/delete-item/?id=<%= i.id %>">
+                                <i class="fa fa-trash-o box" style="font-size:20px; color: red;"></i>
+                            </a>
+                        </div>
+    
+                        <div style="max-width: 150px; background-color:wheat; margin-left: 3%;">
+                            <p style="color: black; text-align: center;"><%= i.category %></p>
+                        </div>
+
+                    </li>
+                </ul>
+            <% } %>
+        </div>
+        <hr size="3" width="90%" color="grey" style="margin-left: 5%; margin-bottom: 40px;">  
+    </div>
+
+    <script type="text/javascript" src="/js/todoList.js"></script>
+</body>
+</html>
